@@ -9,6 +9,7 @@ import (
 	"github.com/evcc-io/evcc/util"
 	"github.com/glebarez/sqlite"
 	"github.com/mitchellh/go-homedir"
+	"gorm.io/driver/postgres"
 	"gorm.io/gorm"
 )
 
@@ -30,8 +31,8 @@ func New(driver, dsn string) (*gorm.DB, error) {
 		}
 		// avoid busy errors
 		dialect = sqlite.Open(file + "?_pragma=busy_timeout(5000)")
-	// case "postgres":
-	// 	dialect = postgres.Open(dsn)
+	case "postgres":
+		dialect = postgres.Open(dsn)
 	// case "mysql":
 	// 	dialect = mysql.Open(dsn)
 	default:
