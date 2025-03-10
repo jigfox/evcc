@@ -9,6 +9,7 @@ import (
 	"github.com/evcc-io/evcc/util"
 	"github.com/glebarez/sqlite"
 	"github.com/mitchellh/go-homedir"
+	"gorm.io/driver/mysql"
 	"gorm.io/driver/postgres"
 	"gorm.io/gorm"
 )
@@ -33,8 +34,8 @@ func New(driver, dsn string) (*gorm.DB, error) {
 		dialect = sqlite.Open(file + "?_pragma=busy_timeout(5000)")
 	case "postgres":
 		dialect = postgres.Open(dsn)
-	// case "mysql":
-	// 	dialect = mysql.Open(dsn)
+	case "mysql":
+		dialect = mysql.Open(dsn)
 	default:
 		return nil, fmt.Errorf("invalid database type: %s not in [sqlite]", driver)
 	}
