@@ -128,7 +128,7 @@ func TestCloseSessionsOnStartup(t *testing.T) {
 
 	// check fixed sessions for db1
 	var db1Sessions session.Sessions
-	err = serverdb.Instance.Where("Loadpoint = ?", "foo").Order("ID").Find(&db1Sessions).Error
+	err = serverdb.Instance.Where("loadpoint = ?", "foo").Order("ID").Find(&db1Sessions).Error
 	require.NoError(t, err)
 	assert.Len(t, db1Sessions, 6)
 
@@ -145,7 +145,7 @@ func TestCloseSessionsOnStartup(t *testing.T) {
 
 	// ensure no side effects on loadpoint 2 data, i.e. data left unfixed
 	var db2Sessions session.Sessions
-	err = serverdb.Instance.Where("Loadpoint = ?", "bar").Order("ID").Find(&db2Sessions).Error
+	err = serverdb.Instance.Where("loadpoint = ?", "bar").Order("ID").Find(&db2Sessions).Error
 	require.NoError(t, err)
 	assert.Len(t, db2Sessions, 6)
 
