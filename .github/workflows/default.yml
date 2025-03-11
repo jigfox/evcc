@@ -4,6 +4,7 @@ on:
   push:
     branches:
       - master
+      - external-database
   pull_request:
   workflow_call:
 
