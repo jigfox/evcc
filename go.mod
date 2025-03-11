@@ -104,6 +104,8 @@ require (
 	google.golang.org/grpc v1.70.0
 	google.golang.org/protobuf v1.36.5
 	gopkg.in/yaml.v3 v3.0.1
+	gorm.io/driver/mysql v1.5.7
+	gorm.io/driver/postgres v1.5.11
 	gorm.io/gorm v1.25.12
 )
 
@@ -208,8 +210,6 @@ require (
 	google.golang.org/genproto/googleapis/rpc v0.0.0-20241202173237-19429a94021a // indirect
 	gopkg.in/go-playground/validator.v9 v9.31.0 // indirect
 	gopkg.in/sourcemap.v1 v1.0.5 // indirect
-	gorm.io/driver/mysql v1.5.7 // indirect
-	gorm.io/driver/postgres v1.5.11 // indirect
 	modernc.org/libc v1.55.3 // indirect
 	modernc.org/mathutil v1.6.0 // indirect
 	modernc.org/memory v1.8.0 // indirect
